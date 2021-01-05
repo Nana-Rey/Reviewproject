@@ -17,15 +17,20 @@ def signupview(request):
     return render(request, 'signup.html',{})
 
 def loginview(request):
-    if ewquest.method == 'POST':
+    if request.method == 'POST':
         username_data = request.POST['username_data']
         password_data = request.POST['password_data']
         user = authenticate(request, username=username_data ,password=password_data)
         if user is not None:
-            login (request, user)
+            login(request, user)
             return redirect('list')
         else:
             return redirect('login')
     return render(request, 'login.html')
+def sampleview(request):
+    if request.method == 'POST':
+        return redirect('login')
+    else:
+        return render(request,'login.html',{})
 
 
