@@ -6,6 +6,9 @@
 <form  class="form-signin" method='post'>{% csrf_token %}
     <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="72">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    {% if error %}
+    {{ error }}
+    {% endif %}
     <label for="inputEmail" class="visually-hidden">Email address</label>
     <input type="text" id="inputEmail" class="form-control" placeholder="username" name="username_data" required autofocus>
     <label for="inputPassword" class="visually-hidden">Username</label>
